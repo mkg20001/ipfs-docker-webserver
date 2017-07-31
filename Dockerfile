@@ -13,7 +13,7 @@ RUN rm -f /etc/apt/apt.conf.d/01autoremove-kernels \
  \
  && echo 'Apt::AutoRemove::SuggestsImportant "false";' > /etc/apt/apt.conf.d/docker-autoremove-suggests
 
-RUN apt-get update && apt-get dist-upgrade -y && apt-get install -y git make curl wget apache2 && rm -rf /var/lib/apt /var/cache/apt
+RUN apt-get update && apt-get dist-upgrade -y && apt-get install -y git make curl wget apache2 dumb-init && rm -rf /var/lib/apt /var/cache/apt
 
 RUN mkdir /app
 WORKDIR /app
@@ -31,7 +31,7 @@ RUN a2enmod expires rewrite headers proxy*
 VOLUME /root/.ipfs
 VOLUME /var/log/apache2
 
-ENTRYPOINT ["/app/run.sh"]
+ENTRYPOINT ["/usr/bin/dumb-init","/app/run.sh"]
 EXPOSE 80
 
 HEALTHCHECK --interval=30s  --timeout=10s --retries=3 CMD curl -f http://localhost
