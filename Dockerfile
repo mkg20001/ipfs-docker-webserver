@@ -13,8 +13,7 @@ RUN rm -f /etc/apt/apt.conf.d/01autoremove-kernels \
  \
  && echo 'Apt::AutoRemove::SuggestsImportant "false";' > /etc/apt/apt.conf.d/docker-autoremove-suggests
 
-RUN apt-get update && apt-get dist-upgrade -y
-RUN apt-get install -y git make curl wget
+RUN apt-get update && apt-get dist-upgrade -y && apt-get install -y git make curl wget apache2 && rm -rf /var/lib/apt /var/cache/apt
 
 RUN mkdir /app
 WORKDIR /app
@@ -27,8 +26,6 @@ RUN git clone https://github.com/mkg20001/dist.ipfs.io-installer ipfsio && \
   ipfs-installer install fs-repo-migrations && \
   rm -rf ipfsio
 
-#Apache2
-RUN apt-get install -y apache2
 RUN a2enmod expires rewrite headers proxy*
 
 VOLUME /root/.ipfs
