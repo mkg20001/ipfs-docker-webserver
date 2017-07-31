@@ -37,7 +37,7 @@ sed "s|\$IPNS|$ipns|g" -i /etc/apache2/sites-available/000-default.conf
 echo "[HOSTING] /ipns/$ipns/"
 
 service apache2 restart &
-ipfs daemon &
+ipfs daemon --migrate &
 IPFSPID=$!
 tail --pid=$IPFSPID -f /var/log/apache2/access.log -n 0 &
 tail --pid=$IPFSPID -f /var/log/apache2/error.log -n 0 &
