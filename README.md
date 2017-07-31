@@ -6,6 +6,14 @@ IPFS webserver powered by apache2 as docker container
 
 Now the webserver should be running on 0.0.0.0:8090
 
-[ » Demo ](http://94.130.45.83:8090/)
+### Env
 
-[ » Learn more ](https://github.com/ipfs/examples/tree/master/examples/websites)
+`IPNS_URL`: The IPNS url of you page (e.g `Qm...` or `ipfs.io`)
+
+`IPFS_URL`: Arbitrary link that go-ipfs can serve (e.g `/ipfs/Qm...`)
+
+# Links
+
+### [ » Demo ](http://94.130.45.83:8090/)
+
+### [ » Learn more ](https://github.com/ipfs/examples/tree/master/examples/websites)
