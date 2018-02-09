@@ -23,10 +23,6 @@ EXPOSE 80
 
 HEALTHCHECK --interval=30s  --timeout=10s --retries=3 CMD curl -f http://localhost
 
-ADD app /app
-ADD apache.conf /etc/apache2/sites-available/000-default.conf
-WORKDIR /app
-
 #IPFS
 RUN git clone https://github.com/mkg20001/dist.ipfs.io-installer ipfsio && \
   make -C ipfsio install && \
@@ -36,3 +32,8 @@ RUN git clone https://github.com/mkg20001/dist.ipfs.io-installer ipfsio && \
   rm -rf ipfsio
 
 RUN rm /etc/apache2/mods-available/proxy_http2.load && a2enmod expires rewrite headers proxy*
+
+COPY apache.conf /etc/apache2/sites-available/000-default.conf
+
+COPY app /app
+WORKDIR /app
