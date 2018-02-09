@@ -12,6 +12,8 @@ Now the webserver should be running on 0.0.0.0:8090
 
 `IPFS_URL`: Arbitrary link that go-ipfs can serve (e.g `/ipfs/Qm...`)
 
+`PASSTHROUGH`: Just pass all request as-is to the server while still setting the cache headers
+
 # Links
 
 ### [ » Demo ](http://94.130.45.83:8090/)
