@@ -16,6 +16,6 @@ Now the webserver should be running on 0.0.0.0:8090
 
 # Links
 
-### [ » Demo ](http://94.130.45.83:8090/)
+<!-- ### [ » Demo ](http://94.130.45.83:8090/) -->
 
 ### [ » Learn more ](https://github.com/ipfs/examples/tree/master/examples/websites)
